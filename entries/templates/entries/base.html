@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Diary</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather+Sans:700,300italic,400italic,700italic,300,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/diary.css' %}">
+
+     <!-- FontAwesome JS-->
+    <script type="text/javascript" src="{% static 'plugins/font-awesome/js/fontawesome-all.min.js' %}"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/elegant_font/css/style.css' %}">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/theme-2.css' %}">
+</head>
+
+<body>
+    <div class="header-wrapper header-wrapper">
+        <!-- ******HEADER****** -->
+    {% include 'entries/navbar.html' %}
+    </div><!--//header-wrapper-->
+    <section class="promo section">
+        <div class="container text-center">
+            <h2 class="title">Diary Entries</h2>
+            <p class="intro">Through documentation of our daily activities and accomplishments in our diaries,
+                we can create lasting memories.</p>
+        </div><!--//container-->
+    </section><!--//promo-->
+
+    <h1><a href="/">Dear diary …</a></h1>
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+        <li class="message">
+            {{ message }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+    {% block content %}
+
+    {% endblock %}
+
+ <!--
+ <hr>
+ <a href="{% url 'admin:logout' %}">Logout</a> -->
+
+</body>
+
+</html>
